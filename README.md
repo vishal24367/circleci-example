@@ -16,6 +16,4 @@ The example [config file](https://github.com/currents-dev/circleci-example/blob/
 
 - Note: create an organization, get your record key at [Currents.dev](https://app.currents.dev) and set [Envitonment variable](https://circleci.com/docs/2.0/env-vars/) `CURRENTS_RECORD_KEY`
 
-Here's an example of how the demo appears in Currents.dev dashboard:
-
-![Kapture 2021-09-16 at 12 14 16](https://user-images.githubusercontent.com/1637928/133671707-cd809410-863e-4118-9204-60410e17b0bd.gif)
+Here's an example of the demo run appears in Currents.dev dashboard:
