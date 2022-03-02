@@ -5,13 +5,14 @@ jobs:
     docker:
       - image: cypress/base:14.17.3
     steps:
-      - install:
+      - run:
           command: npm install cypress @currents/cli
       - run:
           command: npx currents run --record --key $CURRENTS_RECORD_KEY
           store_artifacts: true
           parallel: true
           parallelism: 3
+
 
 workflows:
   cypress:
