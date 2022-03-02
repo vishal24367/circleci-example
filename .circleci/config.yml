@@ -1,14 +1,19 @@
 version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
-workflows:
-  build:
-    jobs:
-      - cypress/install
-      - cypress/run:
+
+jobs:
+  test:
+    docker:
+      - image: cypress/base:14.17.3
+    steps:
+      - install:
+          command: npm install cypress @currents/cli
+      - run:
           command: npx currents run --record --key $CURRENTS_RECORD_KEY
-          requires:
-            - cypress/install
           store_artifacts: true
           parallel: true
           parallelism: 3
+
+workflows:
+  cypress:
+    jobs:
+      - test
