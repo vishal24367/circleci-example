@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: cypress/base:14.17.3
     steps:
+      - checkout
       - run:
           command: npm install cypress @currents/cli
       - run:
