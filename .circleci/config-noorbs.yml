@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  test:
+    parallelism: 3
+    docker:
+      - image: cypress/base:14.17.3
+    steps:
+      - checkout
+      - run:
+          command: npm install cypress @currents/cli
+      - run:
+          command: npx currents run --record --key $CURRENTS_RECORD_KEY
+
+workflows:
+  cypress:
+    jobs:
+      - test:
+          context: currents
