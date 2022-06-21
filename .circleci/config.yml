@@ -6,6 +6,8 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
+          context:
+	    - currents
           command: npx currents run --parallel --record --key $CURRENTS_RECORD_KEY
           requires:
             - cypress/install
