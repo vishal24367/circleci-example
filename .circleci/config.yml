@@ -1,12 +1,14 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@2.2.0
 workflows:
   build:
     jobs:
       - cypress/install
       - cypress/run:
-          command: npx currents run --record --key $CURRENTS_RECORD_KEY
+          context:
+            - currents
+          command: npx currents run --parallel --record --key $CURRENTS_RECORD_KEY
           requires:
             - cypress/install
           store_artifacts: true

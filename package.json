@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@currents/cli": "^1.0.8",
-    "cypress": "^8.7.0"
+    "@currents/cli": "3.0.0-beta.5",
+    "cypress": "^11.0.1"
   }
 }
