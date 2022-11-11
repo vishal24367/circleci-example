@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: npm install cypress @currents/cli
+          command: npm install cypress @currents/cli@3.0.0-beta.5
       - run:
           command: npx currents run --record --key $CURRENTS_RECORD_KEY
 
