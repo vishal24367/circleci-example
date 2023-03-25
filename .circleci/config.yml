@@ -1,16 +1,31 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@2.2.0
+  cypress: cypress-io/cypress@3.0.0
+
+jobs:
+  cypress-install:
+    executor: cypress/default
+    steps:
+      - cypress/install
+      - persist_to_workspace:
+          paths:
+            - .cache/Cypress
+            - project
+          root: ~/
+  cypress-run:
+    executor: cypress/default
+    parallelism: 3
+    steps:
+      - attach_workspace:
+          at: ~/
+      - cypress/run-tests:
+          cypress-command: npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY
+
 workflows:
   build:
     jobs:
-      - cypress/install
-      - cypress/run:
-          context:
-            - currents
-          command: npx currents run --parallel --record --key $CURRENTS_RECORD_KEY
+      - cypress-install
+      - cypress-run:
+          context: currents
           requires:
-            - cypress/install
-          store_artifacts: true
-          parallel: true
-          parallelism: 3
+            - cypress-install
