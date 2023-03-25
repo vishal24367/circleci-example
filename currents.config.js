@@ -1,6 +1,6 @@
 module.exports = {
   projectId: "Ij0RfK",
   e2e: {
-    batchSize: 1,
+    batchSize: 3,
   },
 };
