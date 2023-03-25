@@ -13,8 +13,6 @@ jobs:
             - project
           root: ~/
   cypress-run:
-    context:
-      - currents
     executor: cypress/default
     parallelism: 3
     steps:
@@ -28,5 +26,6 @@ workflows:
     jobs:
       - cypress-install
       - cypress-run:
+          context: currents
           requires:
             - cypress-install
