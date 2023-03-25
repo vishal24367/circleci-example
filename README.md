@@ -19,3 +19,5 @@ The example [config file](https://github.com/currents-dev/circleci-example/blob/
 ---
 
 Here's an example of the demo run in Currents.dev dashboard, note that 3 cypress agents were used as part of this run:
+
+https://user-images.githubusercontent.com/1637928/227703488-9bec973c-de2d-41d0-b811-dfffd370dfb7.mp4
