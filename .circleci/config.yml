@@ -13,14 +13,14 @@ jobs:
             - project
           root: ~/
   cypress-run:
+    context:
+      - currents
     executor: cypress/default
     parallelism: 3
     steps:
       - attach_workspace:
           at: ~/
       - cypress/run-tests:
-          context:
-            - currents
           cypress-command: npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY
 
 workflows:
