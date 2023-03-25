@@ -1,6 +1,7 @@
-const { defineConfig } = require("cypress");
-const { cloudPlugin } = require("@cypress/cloud-plugin");
-module.exports = defineConfig({
+import { defineConfig } from "cypress";
+import { cloudPlugin } from "cypress-cloud/plugin";
+
+export default defineConfig({
   e2e: {
     baseUrl: "https://en.wikipedia.org/",
     specPattern: "cypress/integration/*.spec.js",

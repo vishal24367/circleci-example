@@ -8,7 +8,7 @@ workflows:
       - cypress/run:
           context:
             - currents
-          command: DEBUG=currents:* npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY
+          command: npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY
           requires:
             - cypress/install
           store_artifacts: true
