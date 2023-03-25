@@ -3,7 +3,7 @@ orbs:
   cypress: cypress-io/cypress@3.0.0
 
 jobs:
-  cypress/install:
+  cypress-install:
     executor: cypress/default
     steps:
       - cypress/install
@@ -12,7 +12,7 @@ jobs:
             - .cache/Cypress
             - project
           root: ~/
-  cypress/run:
+  cypress-run:
     executor: cypress/default
     parallelism: 3
     steps:
@@ -26,7 +26,7 @@ jobs:
 workflows:
   build:
     jobs:
-      - cypress/install
-      - cypress/run:
+      - cypress-install
+      - cypress-run:
           requires:
-            - cypress/install
+            - cypress-install
