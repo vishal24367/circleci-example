@@ -23,7 +23,6 @@ global_job_config:
   jobs:
     - name: Cypress
       commands:
-        - yarn build:ci
         - yarn run cypress install
         - npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY
 lifecycle:
