@@ -17,9 +17,7 @@ global_job_config:
   setup:
     - checkout
     - neetoci-version node 16.16.0
-    - cache restore
     - yarn install
-    - cache store
   jobs:
     - name: Cypress
       commands:
