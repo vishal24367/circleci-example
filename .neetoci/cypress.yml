@@ -1,0 +1,37 @@
+version: v1.0
+is_cypress: true
+fail_fast: false
+parallelism: 3
+plan: professional-1
+envs:
+  - key: CURRENTS_RECORD_KEY
+    value: "PVHNwxEOySsdAeTc"
+  - key: DEPLOYMENT_URL
+    value: "https://todomvc.com/examples/vanillajs"
+
+triggers:
+  - event: pull_request_labeled
+    label: cypress-run
+  
+global_job_config:
+  setup:
+    - checkout
+    - neetoci-version node 16.16.0
+    - yarn install
+  jobs:
+    - name: Cypress
+      commands:
+        - yarn run cypress install
+        - npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY --ci-build-id $CI_BUILD_ID
+lifecycle:
+  on_running:
+    - action: remove_labels
+      labels: ["cypress-run"]
+    - action: add_labels
+      labels: ["cypress-triggered"]
+
+  on_complete:
+    - action: remove_labels
+      labels: ["cypress-triggered"]
+    - action: add_labels
+      labels: ["cypress-completed"]
