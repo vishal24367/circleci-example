@@ -6,6 +6,8 @@ plan: professional-1
 envs:
   - key: CURRENTS_RECORD_KEY
     value: "PVHNwxEOySsdAeTc"
+  - key: DEPLOYMENT_URL
+    value: "https://todomvc.com/examples/vanillajs"
 
 triggers:
   - event: pull_request_labeled
