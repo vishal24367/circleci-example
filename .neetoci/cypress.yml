@@ -24,7 +24,7 @@ global_job_config:
     - name: Cypress
       commands:
         - yarn run cypress install
-        - npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY
+        - npx cypress-cloud run --parallel --record --key $CURRENTS_RECORD_KEY --ci-build-id $CI_BUILD_ID
 lifecycle:
   on_running:
     - action: remove_labels
